@@ -1,0 +1,36 @@
+{
+  "name": "c-universe-service",
+  "version": "0.0.0",
+  "description": "A NodeJS service for c-universe",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run lint && node src/app.js",
+    "dev": "nodemon src/app.js",
+    "lint": "./node_modules/.bin/eslint ./src/*",
+    "commit": "npx git-cz"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "helmet": "^3.21.2",
+    "http-errors": "^1.7.3",
+    "jsonwebtoken": "^8.5.1",
+    "morgan": "^1.9.1",
+    "validator": "^12.1.0"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^2.10.0",
+    "@typescript-eslint/parser": "^2.10.0",
+    "commitizen": "^4.0.3",
+    "eslint": "^6.7.2",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "nodemon": "^2.0.1"
+  }
+}
