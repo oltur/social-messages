@@ -4,4 +4,4 @@ function indexController (request, response) {
 
 module.exports = {
     indexController
-}
+};

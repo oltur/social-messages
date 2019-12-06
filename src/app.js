@@ -1,4 +1,5 @@
 "use strict";
+
 const express = require("express");
 const helmet = require("helmet");
 const bodyParser = require("body-parser");
@@ -6,14 +7,12 @@ const logger = require("morgan");
 const rateLimit = require("express-rate-limit");
 const createError = require("http-errors");
 const router = require("./routes/index");
-
 const generalConfig = require("./config/general");
 const { corsMiddleware, errorHandleMiddleware } = require("./middlewares/index");
 
-const port = process.env.PORT || 3000;
 const app = express();
 
-//limit request for a single IP
+// limit request for a single IP
 app.use(rateLimit(generalConfig));
 
 // security middleware
@@ -39,6 +38,4 @@ app.use((req, res, next) => {
 
 app.use(errorHandleMiddleware);
 
-app.listen(port, () => {
-    console.log("Listening on ", port);
-});
+module.exports = app;

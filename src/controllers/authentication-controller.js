@@ -1,9 +1,9 @@
-const AuthService = require("../services/auth-service");
-const {ErrorHandler} = require("../utils/error-handler");
+const AuthService = require("../services/authentication-service");
+const { ErrorHandler } = require("../utils/error-handler");
 const authService = new AuthService();
 
 async function loginController (request, response, next) {
-    const {user, password} = request.body;
+    const { user, password } = request.body;
     try {
         const login = await authService.login(user, password);
         response.send(login);
@@ -14,4 +14,4 @@ async function loginController (request, response, next) {
 
 module.exports = {
     loginController
-}
+};

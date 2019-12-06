@@ -4,9 +4,10 @@
   "description": "A NodeJS service for c-universe",
   "main": "index.js",
   "scripts": {
-    "start": "npm run lint && node src/app.js",
-    "dev": "nodemon src/app.js",
+    "start": "npm run lint && node ./bin/index.js",
+    "dev": "nodemon ./bin/index.js",
     "lint": "./node_modules/.bin/eslint ./src/*",
+    "lint-fix": "./node_modules/.bin/eslint ./src/* --fix",
     "commit": "npx git-cz"
   },
   "author": "",
@@ -26,6 +27,7 @@
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^2.10.0",
     "@typescript-eslint/parser": "^2.10.0",
+    "babel-eslint": "^10.0.3",
     "commitizen": "^4.0.3",
     "eslint": "^6.7.2",
     "eslint-config-standard": "^14.1.0",

@@ -4,4 +4,4 @@ function usersIndexController (request, response, next) {
 
 module.exports = {
     usersIndexController
-}
+};
