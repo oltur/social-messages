@@ -4,9 +4,9 @@ const fs = require("fs");
 const path = require("path");
 const {ErrorHandler} = require("../utils/error-handler");
 const signToken = util.promisify(jsonwebtoken.sign);
-const keyPath = path.join(process.cwd(), ".ssh", "privateKey")
+const keyPath = path.join(process.cwd(), ".ssh", "privateKey");
 
-class Auth {
+class AuthService {
 
     #sshPrivateKey;
 
@@ -21,18 +21,24 @@ class Auth {
         try {
             this.#sshPrivateKey = fs.readFileSync(keyPath, "utf-8");
         } catch (e) {
-            throw new ErrorHandler(500, "Error finding ssh keys")
+            throw new ErrorHandler(500, "Can't locate ssh keys", e);
         }
     }
 
-    login(user) {
-        return this.signToken(user);
+    async login(user, password) {
+      const validUser = await this.checkUserCredentials(user, password);
+
+
+      return this.signToken(validUser);
     }
 
-    async signToken (payload) {
-        const token = await signToken(payload, this.#sshPrivateKey, Auth.signOptions);
-        return token;
+    checkUserCredentials(user, password) {
+        return {user}
     }
+
+   signToken (payload) {
+       return signToken(payload, this.#sshPrivateKey, AuthService.signOptions);
+   }
 }
 
-module.exports = Auth;
+module.exports = AuthService;

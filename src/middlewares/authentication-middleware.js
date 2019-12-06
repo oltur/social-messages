@@ -6,7 +6,7 @@ const fs = require("fs");
 const verifyToken = util.promisify(jwt.verify);
 const readFile = util.promisify(fs.readFile);
 
-const isAuthenticated = async (request, response, next) => {
+async function isAuthenticated (request, response, next) {
     let token = request.headers[GLOBALS.AUTH_HEADER];
 
     if (token && token.startsWith("Bearer ")) {
