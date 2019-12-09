@@ -30,12 +30,7 @@ app.use(logger("dev"));
 // routes
 app.use(router);
 
-// catch 404 and forward to error handler
-// TODO: check how to implement 404 better
-app.use((req, res, next) => {
-    next(createError(404));
-});
-
+// error handler
 app.use(errorHandleMiddleware);
 
 module.exports = app;
