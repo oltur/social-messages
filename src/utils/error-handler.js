@@ -9,7 +9,7 @@ class ErrorHandler extends Error {
     }
 }
 
-const handleError = (error, response) => {
+function handleError (error, response) {
     const { statusCode, message, details } = error;
     console.error(error);
     return response.status(statusCode).json({
@@ -18,7 +18,7 @@ const handleError = (error, response) => {
         message,
         details
     });
-};
+}
 
 module.exports = {
     ErrorHandler,

@@ -1,11 +1,12 @@
 "use strict";
 
+// TODO: Add proper logging with Winston os simmilar
+
 const express = require("express");
 const helmet = require("helmet");
 const bodyParser = require("body-parser");
 const logger = require("morgan");
 const rateLimit = require("express-rate-limit");
-const createError = require("http-errors");
 const router = require("./routes/index");
 const generalConfig = require("./config/general");
 const { corsMiddleware, errorHandleMiddleware } = require("./middlewares/index");
