@@ -4,12 +4,17 @@ const util = require("util");
 const jsonwebtoken = require("jsonwebtoken");
 const fs = require("fs");
 const path = require("path");
-const { ErrorHandler } = require("../utils/error-handler");
 const signToken = util.promisify(jsonwebtoken.sign);
-const keyPath = path.join(process.cwd(), ".ssh", "privateKey");
+const verifyToken = util.promisify(jsonwebtoken.verify);
+const privateKeyPath = path.join(process.cwd(), process.env.PRIVATE_KEY_PATH);
+const publicKeyPath = path.join(process.cwd(), process.env.PUBLIC_KEY_PATH);
+
+const sshPrivateKey = fs.readFileSync(privateKeyPath, "utf-8");
+const sshPublicKey = fs.readFileSync(publicKeyPath, "utf-8");
 
 class AuthenticationService {
     #sshPrivateKey;
+    #sshPublicKey;
 
     static signOptions = {
         issuer: "c-universe",
@@ -18,25 +23,33 @@ class AuthenticationService {
         algorithm: "RS256"
     };
 
-    constructor () {
-        try {
-            this.#sshPrivateKey = fs.readFileSync(keyPath, "utf-8");
-        } catch (e) {
-            throw new ErrorHandler(500, "Can't locate ssh keys", e);
-        }
+    static verifyOptions = {
+        issuer: "c-universe",
+        audience: "c-universe",
+        expiresIn: "12h",
+        algorithm: "RS256"
+    };
+
+    constructor() {
+        this.#sshPrivateKey = sshPrivateKey;
+        this.#sshPublicKey = sshPublicKey;
     }
 
-    async login (user, password) {
+    async checkToken (token) {
+        return verifyToken(token, this.#sshPublicKey, AuthenticationService.verifyOptions);
+    }
+
+    async login(user, password) {
         const validUser = await this.checkUserCredentials(user, password);
 
         return this.signToken(validUser);
     }
 
-    checkUserCredentials (user, password) {
+    checkUserCredentials(user, password) {
         return { user };
     }
 
-    signToken (payload) {
+    signToken(payload) {
         return signToken(payload, this.#sshPrivateKey, AuthenticationService.signOptions);
     }
 }

@@ -12,11 +12,11 @@ class ErrorHandler extends Error {
 function handleError (error, response) {
     const { statusCode, message, details } = error;
     console.error(error);
+    console.error(details);
     return response.status(statusCode).json({
         status: "error",
         statusCode,
-        message,
-        details
+        message
     });
 }
 

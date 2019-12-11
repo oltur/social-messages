@@ -7,7 +7,11 @@ const port = process.env.PORT || 3000;
 server.listen(port);
 server.on("listening", onListening(port));
 
-process.on('uncaughtException', (err) => {
-    console.error('There was an uncaught error', err);
-    process.exit(1) //mandatory (as per the Node docs)
+process.on("unhandledRejection", function (reason) {
+    throw reason;
+});
+
+process.on("uncaughtException", (err) => {
+    console.error("There was an uncaught error", err);
+    process.exit(1);
 });
