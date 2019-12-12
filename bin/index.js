@@ -1,7 +1,14 @@
 const http = require("http");
+const dotenv = require("dotenv");
+const { onListening } = require("../src/utils/server-utils");
+
+if (process.env.ENV === "DEVELOPMENT") {
+    dotenv.config();
+}
+
 const app = require("../src/app");
 const server = http.createServer(app);
-const { onListening } = require("../src/utils/server-utils");
+
 const port = process.env.PORT || 3000;
 
 server.listen(port);

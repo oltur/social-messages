@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "npm run lint && node ./bin/index.js",
-    "dev": "PRIVATE_KEY_PATH=./.ssh/privateKey PUBLIC_KEY_PATH=./.ssh/publicKey nodemon ./bin/index.js",
+    "dev": "ENV=DEVELOPMENT nodemon ./bin/index.js",
     "lint": "./node_modules/.bin/eslint ./src/*",
     "lint-fix": "./node_modules/.bin/eslint ./src/* --fix",
     "commit": "npx git-cz"
@@ -30,6 +30,7 @@
     "@typescript-eslint/parser": "^2.10.0",
     "babel-eslint": "^10.0.3",
     "commitizen": "^4.0.3",
+    "dotenv": "^8.2.0",
     "eslint": "^6.7.2",
     "eslint-config-standard": "^14.1.0",
     "eslint-plugin-import": "^2.18.2",
@@ -38,6 +39,8 @@
     "eslint-plugin-standard": "^4.0.1",
     "jest": "^24.9.0",
     "nodemon": "^2.0.1",
-    "supertest": "^4.0.2"
+    "supertest": "^4.0.2",
+    "ts-node": "^8.5.4",
+    "typescript": "^3.7.3"
   }
 }

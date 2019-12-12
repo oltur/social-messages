@@ -6,6 +6,7 @@ const fs = require("fs");
 const path = require("path");
 const signToken = util.promisify(jsonwebtoken.sign);
 const verifyToken = util.promisify(jsonwebtoken.verify);
+console.log("private path", process.env.PRIVATE_KEY_PATH);
 const privateKeyPath = path.join(process.cwd(), process.env.PRIVATE_KEY_PATH);
 const publicKeyPath = path.join(process.cwd(), process.env.PUBLIC_KEY_PATH);
 
@@ -15,6 +16,7 @@ const sshPublicKey = fs.readFileSync(publicKeyPath, "utf-8");
 class AuthenticationService {
     #sshPrivateKey;
     #sshPublicKey;
+    #userModel;
 
     static signOptions = {
         issuer: "c-universe",
@@ -30,9 +32,10 @@ class AuthenticationService {
         algorithm: "RS256"
     };
 
-    constructor() {
+    constructor (userModel) {
         this.#sshPrivateKey = sshPrivateKey;
         this.#sshPublicKey = sshPublicKey;
+        this.userModel = userModel;
     }
 
     async checkToken (token) {

@@ -10,6 +10,7 @@ const rateLimit = require("express-rate-limit");
 const router = require("./routes/index");
 const generalConfig = require("./config/general");
 const { corsMiddleware, errorHandleMiddleware } = require("./middlewares/index");
+const db = require("./db/index");
 
 const app = express();
 
@@ -31,6 +32,13 @@ app.use(logger("dev"));
 // routes
 app.use(router);
 
+// initiate database
+db.query("SELECT * FROM users ORDER BY id ASC", (error, results) => {
+    if (error) {
+        throw error;
+    }
+    console.log(results);
+})
 // error handler
 app.use(errorHandleMiddleware);
 
