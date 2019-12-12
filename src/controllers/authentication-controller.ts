@@ -1,8 +1,10 @@
-const AuthService = require("../services/authentication-service");
+import { NextFunction, Request, Response } from "express";
+
+import AuthService from "../services/authentication-service";
 const { ErrorHandler } = require("../utils/error-handler");
 const authService = new AuthService();
 
-async function loginController (request, response, next) {
+async function loginController (request: Request, response:Response, next: NextFunction) {
     const { user, password } = request.body;
     try {
         const login = await authService.login(user, password);
@@ -12,6 +14,6 @@ async function loginController (request, response, next) {
     }
 }
 
-module.exports = {
+export {
     loginController
 };

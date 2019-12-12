@@ -5,4 +5,4 @@ const generalConfig = {
     }
 };
 
-module.exports = generalConfig;
+export default generalConfig;

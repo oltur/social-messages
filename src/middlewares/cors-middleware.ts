@@ -1,9 +1,9 @@
 "use strict";
 
-const cors = require("cors");
+import cors from "cors";
 
 const corsMiddleware = () => {
     return cors();
 };
 
-module.exports = corsMiddleware;
+export default corsMiddleware;

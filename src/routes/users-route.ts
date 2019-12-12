@@ -5,4 +5,4 @@ const router = require("express").Router();
 
 router.get("/", usersIndexController);
 
-module.exports = router;
+export default router;

@@ -1,7 +1,9 @@
 "use strict";
 
+import { Response } from "express";
+
 class ErrorHandler extends Error {
-    constructor (statusCode, message, details = null) {
+    constructor (public statusCode: number, public message: string, public details: any = null) {
         super();
         this.statusCode = statusCode;
         this.message = message;
@@ -9,9 +11,8 @@ class ErrorHandler extends Error {
     }
 }
 
-function handleError (error, response) {
+function handleError (error: any, response: Response) {
     const { statusCode, message, details } = error;
-    console.error(error);
     console.error(details);
     return response.status(statusCode).json({
         status: "error",
@@ -20,7 +21,7 @@ function handleError (error, response) {
     });
 }
 
-module.exports = {
+export  {
     ErrorHandler,
     handleError
 };

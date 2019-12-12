@@ -9,4 +9,4 @@ const ROUTES = {
     }
 };
 
-module.exports = ROUTES;
+export default ROUTES;

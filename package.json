@@ -4,10 +4,10 @@
   "description": "A NodeJS service for c-universe",
   "main": "index.js",
   "scripts": {
-    "start": "npm run lint && node ./bin/index.js",
-    "dev": "ENV=DEVELOPMENT nodemon ./bin/index.js",
-    "lint": "./node_modules/.bin/eslint ./src/*",
-    "lint-fix": "./node_modules/.bin/eslint ./src/* --fix",
+    "start": "npm run lint && node src/index.js",
+    "dev": "ENV=DEVELOPMENT nodemon src/index.ts",
+    "lint": "./node_modules/.bin/tslint ./src/*",
+    "lint-fix": "./node_modules/.bin/tslint ./src/* --fix",
     "commit": "npx git-cz"
   },
   "author": "",
@@ -26,6 +26,13 @@
     "winston": "^3.2.1"
   },
   "devDependencies": {
+    "@types/cors": "^2.8.6",
+    "@types/express": "^4.17.2",
+    "@types/express-rate-limit": "^3.3.3",
+    "@types/helmet": "0.0.45",
+    "@types/morgan": "^1.7.37",
+    "@types/node": "^12.12.17",
+    "@types/pg": "^7.11.2",
     "@typescript-eslint/eslint-plugin": "^2.10.0",
     "@typescript-eslint/parser": "^2.10.0",
     "babel-eslint": "^10.0.3",
@@ -41,6 +48,7 @@
     "nodemon": "^2.0.1",
     "supertest": "^4.0.2",
     "ts-node": "^8.5.4",
+    "tslint": "^5.20.1",
     "typescript": "^3.7.3"
   }
 }
