@@ -1,4 +1,4 @@
-import {Request, Response} from "express";
+import { Request, Response } from "express";
 
 function indexController (request: Request, response: Response) {
     response.send("Hello on index");

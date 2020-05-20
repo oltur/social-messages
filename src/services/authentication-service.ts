@@ -1,13 +1,14 @@
 "use strict";
+import config from "../config/general";
+import util from "util";
 
-const util = require("util");
 const jsonwebtoken = require("jsonwebtoken");
 const fs = require("fs");
 const path = require("path");
 const signToken = util.promisify(jsonwebtoken.sign);
 const verifyToken = util.promisify(jsonwebtoken.verify);
-const privateKeyPath = path.join(process.cwd(), process.env.PRIVATE_KEY_PATH);
-const publicKeyPath = path.join(process.cwd(), process.env.PUBLIC_KEY_PATH);
+const privateKeyPath = path.join(process.cwd(), config.env.PRIVATE_KEY_PATH);
+const publicKeyPath = path.join(process.cwd(),  config.env.PUBLIC_KEY_PATH);
 
 const sshDeffaultPrivateKey = fs.readFileSync(privateKeyPath, "utf-8");
 const sshDefaultPublicKey = fs.readFileSync(publicKeyPath, "utf-8");
