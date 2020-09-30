@@ -1,16 +1,18 @@
 "use strict";
 import config from "../config/general";
-import {promisify} from "util";
+//import {promisify} from "util";
 import fs from "fs";
 import path from "path";
-import {Secret, SignOptions, sign, verify, VerifyOptions} from "jsonwebtoken";
+import {SignOptions, sign, verify, VerifyOptions} from "jsonwebtoken";
 
+/*
 const asyncSign = (
     payload: string | Buffer | object,
     secretOrPrivateKey: Secret,
     options: SignOptions
 ) => promisify(sign);
-const asyncVerify = (token: string, secretOrPublicKey: Secret, options: VerifyOptions) => promisify(verify);
+*/
+//const asyncVerify = (token: string, secretOrPublicKey: Secret, options: VerifyOptions) => promisify(verify);
 const privateKeyPath = path.join(process.cwd(), config.env.PRIVATE_KEY_PATH);
 const publicKeyPath = path.join(process.cwd(),  config.env.PUBLIC_KEY_PATH);
 const sshDeffaultPrivateKey = fs.readFileSync(privateKeyPath, "utf-8");
@@ -37,7 +39,7 @@ class AuthenticationService {
     }
 
     async checkToken (token: string) {
-        return asyncVerify(token, this.sshPublicKey, AuthenticationService.verifyOptions);
+        return verify(token, this.sshPublicKey, AuthenticationService.verifyOptions);
     }
 
     async login (user: string, password: string) {
@@ -46,12 +48,12 @@ class AuthenticationService {
         return this.signToken(validUser);
     }
 
-    checkUserCredentials (user: string, password: string) {
+    async checkUserCredentials (user: string, password: string) {
         return { user };
     }
 
     signToken (payload: any) {
-        return asyncSign(payload, this.sshPrivateKey, AuthenticationService.signOptions);
+        return sign(payload, this.sshPrivateKey, AuthenticationService.signOptions);
     }
 }
 

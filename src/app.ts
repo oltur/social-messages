@@ -9,6 +9,7 @@ import logger from "morgan";
 import generalConfig from "./config/general";
 import { corsMiddleware, errorHandleMiddleware } from "./middlewares/index";
 import router from "./routes/index";
+import AuthenticationService from "./services/authentication-service";
 
 const app: Application = express();
 
@@ -27,8 +28,10 @@ app.use(bodyParser.json());
 // beautiful access logs
 app.use(logger("dev"));
 
+const authService = new AuthenticationService();
+
 // routes
-app.use(router);
+app.use(router({authService}));
 
 // error handler
 app.use(errorHandleMiddleware);
