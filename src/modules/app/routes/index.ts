@@ -1,15 +1,15 @@
 "use strict";
 
 import { Router } from "express";
-import {usersRoute} from "../modules/users/routes/users-route";
+import {usersRoute} from "../../users/routes/users-route";
 
 import pageNotFoundRoute from "./page-not-found-404-route";
 import indexController from "../controllers/index-controller";
 import { ROUTES } from "../constants/index";
 
-import { authMiddleware } from "../modules/authentication/middlewares/authentication-middleware";
-import { authenticationRoute, AuthenticationService, AUTHENTICATION_CONSTANTS } from "../modules/authentication";
-import { USERS_CONSTANTS } from "../modules/users";
+import { authMiddleware } from "../../authentication/middlewares/authentication-middleware";
+import { authenticationRoute, AuthenticationService, AUTHENTICATION_CONSTANTS } from "../../authentication";
+import { USERS_CONSTANTS } from "../../users";
 
 
 interface AppRouterProps {

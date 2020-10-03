@@ -6,10 +6,10 @@ import express, { Application } from "express";
 import rateLimit from "express-rate-limit";
 import helmet from "helmet";
 import logger from "morgan";
-import {generalConfig} from "./config/general";
+import {generalConfig} from "../../config/general";
 import { corsMiddleware, errorHandleMiddleware } from "./middlewares/index";
 import router from "./routes/index";
-import {AuthenticationService} from "./modules/authentication/services/authentication-service";
+import {AuthenticationService} from "../authentication/services/authentication-service";
 
 const app: Application = express();
 

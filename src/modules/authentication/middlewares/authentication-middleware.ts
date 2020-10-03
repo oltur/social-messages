@@ -1,8 +1,8 @@
 "use strict";
 
 import { NextFunction, Request, Response } from "express";
-import { GLOBALS } from "../../../constants";
-import { ErrorHandler } from "../../../utils/error-handler";
+import { GLOBALS } from "../../app/constants";
+import { ErrorHandler } from "../../common/utils/error-handler";
 
 import {AuthenticationService} from "../services/authentication-service";
 

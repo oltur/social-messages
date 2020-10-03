@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from "express";
-import { ErrorHandler } from "../../../utils/error-handler";
+import { ErrorHandler } from "../../common/utils/error-handler";
 import { AuthenticationService } from "../services/authentication-service";
 
 

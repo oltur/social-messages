@@ -1,7 +1,7 @@
 "use strict";
 
 import { Router } from "express";
-import { ROUTES } from "../../../constants";
+import { ROUTES } from "../../app/constants";
 
 const authenticationRoute = Router();
 

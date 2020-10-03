@@ -1,6 +1,7 @@
 import {Request, Response, Router} from "express";
+import { ErrorHandler } from "../../common/utils/error-handler";
 
-const { ErrorHandler } = require("../utils/error-handler");
+
 const router = Router();
 
 function pageNotFoundHandler (request: Request, response: Response) {
