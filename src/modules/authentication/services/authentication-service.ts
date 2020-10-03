@@ -2,7 +2,7 @@
 import fs from "fs";
 import path from "path";
 import {SignOptions, sign, verify, VerifyOptions} from "jsonwebtoken";
-import { generalConfig } from "../../../config/general";
+import { generalConfig } from "../../config/general";
 const privateKeyPath = path.join(process.cwd(), generalConfig.env.PRIVATE_KEY_PATH);
 const publicKeyPath = path.join(process.cwd(),  generalConfig.env.PUBLIC_KEY_PATH);
 const sshDeffaultPrivateKey = fs.readFileSync(privateKeyPath, "utf-8");

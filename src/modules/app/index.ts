@@ -6,7 +6,7 @@ import express, { Application } from "express";
 import rateLimit from "express-rate-limit";
 import helmet from "helmet";
 import logger from "morgan";
-import {generalConfig} from "../../config/general";
+import {generalConfig} from "../config/general";
 import { corsMiddleware, errorHandleMiddleware } from "./middlewares/index";
 import router from "./routes/index";
 import {AuthenticationService} from "../authentication/services/authentication-service";
