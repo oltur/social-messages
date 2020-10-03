@@ -3,7 +3,7 @@ import { createServer, Server } from "http";
 if (process.env.ENV === "DEVELOPMENT") {
     dotenv.config();
 }
-import app from "./modules/app/app";
+import app from "./modules/app";
 import { onListening } from "./modules/common/utils/server-utils";
 
 const port = process.env.PORT ? parseInt(process.env.PORT, 10) : 3000;
