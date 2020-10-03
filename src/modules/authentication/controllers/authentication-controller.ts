@@ -1,8 +1,9 @@
 import { NextFunction, Request, Response } from "express";
+import { ErrorHandler } from "../../../utils/error-handler";
+import { AuthenticationService } from "../services/authentication-service";
 
-import AuthService from "../services/authentication-service";
-const { ErrorHandler } = require("../utils/error-handler");
-const authService = new AuthService();
+
+const authService = new AuthenticationService();
 
 async function loginController (request: Request, response:Response, next: NextFunction) {
     const { user, password } = request.body;

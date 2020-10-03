@@ -27,4 +27,6 @@ const generalConfig: Config = {
     }
 };
 
-export default generalConfig;
+export  {
+    generalConfig
+};

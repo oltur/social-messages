@@ -1,20 +1,10 @@
 "use strict";
-import config from "../config/general";
-//import {promisify} from "util";
 import fs from "fs";
 import path from "path";
 import {SignOptions, sign, verify, VerifyOptions} from "jsonwebtoken";
-
-/*
-const asyncSign = (
-    payload: string | Buffer | object,
-    secretOrPrivateKey: Secret,
-    options: SignOptions
-) => promisify(sign);
-*/
-//const asyncVerify = (token: string, secretOrPublicKey: Secret, options: VerifyOptions) => promisify(verify);
-const privateKeyPath = path.join(process.cwd(), config.env.PRIVATE_KEY_PATH);
-const publicKeyPath = path.join(process.cwd(),  config.env.PUBLIC_KEY_PATH);
+import { generalConfig } from "../../../config/general";
+const privateKeyPath = path.join(process.cwd(), generalConfig.env.PRIVATE_KEY_PATH);
+const publicKeyPath = path.join(process.cwd(),  generalConfig.env.PUBLIC_KEY_PATH);
 const sshDeffaultPrivateKey = fs.readFileSync(privateKeyPath, "utf-8");
 const sshDefaultPublicKey = fs.readFileSync(publicKeyPath, "utf-8");
 
@@ -57,4 +47,6 @@ class AuthenticationService {
     }
 }
 
-export default AuthenticationService;
+export  {
+    AuthenticationService
+};
