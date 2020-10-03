@@ -1,7 +1,6 @@
 "use strict";
-
 import { loginController } from "../../authentication/controllers/authentication-controller";
-import { usersIndexController } from "./controllers/users-controller";
+import { usersIndexController } from "../controllers/users-controller";
 
 const usersRoute = require("express").Router();
 

@@ -8,7 +8,8 @@ import indexController from "../controllers/index-controller";
 import { ROUTES } from "../constants/index";
 
 import { authMiddleware } from "../modules/authentication/middlewares/authentication-middleware";
-import { authenticationRoute, AuthenticationService } from "../modules/authentication";
+import { authenticationRoute, AuthenticationService, AUTHENTICATION_CONSTANTS } from "../modules/authentication";
+import { USERS_CONSTANTS } from "../modules/users";
 
 
 interface AppRouterProps {
@@ -18,8 +19,8 @@ interface AppRouterProps {
 const router = Router();
 function appRouter({authService}: AppRouterProps) {
     router.get(ROUTES.INDEX, authMiddleware(authService), indexController);
-    router.use(ROUTES.USERS, usersRoute);
-    router.use(ROUTES.AUTH.INDEX, authenticationRoute);
+    router.use(USERS_CONSTANTS.ROUTES.INDEX, usersRoute);
+    router.use(AUTHENTICATION_CONSTANTS.ROUTES.INDEX, authenticationRoute);
     router.use(pageNotFoundRoute);
     return router;
 }
