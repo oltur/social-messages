@@ -9,6 +9,7 @@ import logger from "morgan";
 import {generalConfig} from "../config/general";
 import { corsMiddleware, errorHandleMiddleware } from "./middlewares/index";
 import { router } from "./routes/index";
+import {pool} from "../db";
 
 const app: Application = express();
 
@@ -29,6 +30,11 @@ app.use(logger("dev"));
 
 // routes
 app.use(router);
+
+pool.connect().then(async (client) => {
+    const time = await client.query("SELECT NOW()");
+    console.log(`DB connected at ${time.rows[0].now}`);
+});
 
 // error handler
 app.use(errorHandleMiddleware);

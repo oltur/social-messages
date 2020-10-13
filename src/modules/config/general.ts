@@ -26,7 +26,7 @@ const generalConfig: IConfig = {
         DB_USER: process.env.DB_USER || "",
         DB_URI: process.env.DB_URI || "",
         DB_PASS: process.env.DB_PASS || "",
-        DB_PORT: process.env.DB_PORT ? parseInt(process.env.DB_PORT, 10) : 3220,
+        DB_PORT: process.env.DB_PORT ? parseInt(process.env.DB_PORT, 10) : 5432,
         PORT: process.env.PORT ? parseInt(process.env.PORT, 10) : 3000,
     },
 };
