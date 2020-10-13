@@ -5,8 +5,8 @@ const ROUTES = {
     USERS: "/users",
     AUTH: {
         INDEX: "/auth",
-        LOGIN: "/login"
-    }
+        LOGIN: "/login",
+    },
 };
 
 export default ROUTES;

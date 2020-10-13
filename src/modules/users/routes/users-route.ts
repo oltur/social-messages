@@ -1,12 +1,11 @@
 "use strict";
-import { loginController } from "../../authentication/controllers/authentication-controller";
 import { usersIndexController } from "../controllers/users-controller";
+import {Router} from "express";
 
-const usersRoute = require("express").Router();
+const usersRoute = Router();
 
 usersRoute.get("/", usersIndexController);
 
-usersRoute.post("/login", loginController);
 
 export  {
     usersRoute

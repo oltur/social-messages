@@ -1,11 +1,10 @@
 import { NextFunction, Request, Response } from "express";
 import { ErrorHandler } from "../../common/utils/error-handler";
-import { AuthenticationService } from "../services/authentication-service";
+import {getAuthenticationServiceInstance} from "../services/authentication-service-singleton";
 
+const authService = getAuthenticationServiceInstance();
 
-const authService = new AuthenticationService();
-
-async function loginController (request: Request, response:Response, next: NextFunction) {
+async function loginController(request: Request, response: Response, next: NextFunction) {
     const { user, password } = request.body;
     try {
         const login = await authService.login(user, password);
@@ -16,5 +15,5 @@ async function loginController (request: Request, response:Response, next: NextF
 }
 
 export {
-    loginController
+    loginController,
 };

@@ -8,8 +8,7 @@ import helmet from "helmet";
 import logger from "morgan";
 import {generalConfig} from "../config/general";
 import { corsMiddleware, errorHandleMiddleware } from "./middlewares/index";
-import router from "./routes/index";
-import {AuthenticationService} from "../authentication/services/authentication-service";
+import { router } from "./routes/index";
 
 const app: Application = express();
 
@@ -28,10 +27,8 @@ app.use(bodyParser.json());
 // beautiful access logs
 app.use(logger("dev"));
 
-const authService = new AuthenticationService();
-
 // routes
-app.use(router({authService}));
+app.use(router);
 
 // error handler
 app.use(errorHandleMiddleware);

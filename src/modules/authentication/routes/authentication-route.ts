@@ -2,10 +2,9 @@
 
 import { Router } from "express";
 import { ROUTES } from "../../app/constants";
+import {loginController} from "../controllers/authentication-controller";
 
 const authenticationRoute = Router();
-
-const { loginController } = require("../controllers/authentication-controller");
 
 authenticationRoute.post(ROUTES.AUTH.LOGIN, loginController);
 

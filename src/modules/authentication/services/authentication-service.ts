@@ -10,19 +10,20 @@ const sshDefaultPublicKey = fs.readFileSync(publicKeyPath, "utf-8");
 
 class AuthenticationService {
 
-    static signOptions: SignOptions = {
+    public static signOptions: SignOptions = {
         issuer: "c-universe",
         audience: "c-universe",
         expiresIn: "12h",
         algorithm: "RS256",
     };
 
-    static verifyOptions: VerifyOptions = {
+    public static verifyOptions: VerifyOptions = {
         issuer: "c-universe",
         audience: "c-universe",
     };
 
     constructor (public userModel?: any, private readonly sshPrivateKey: string = sshDeffaultPrivateKey, private readonly sshPublicKey: string = sshDefaultPublicKey) {
+        console.log("Creating auth instances");
         this.sshPrivateKey = sshPrivateKey;
         this.sshPublicKey = sshPublicKey;
         this.userModel = userModel;
