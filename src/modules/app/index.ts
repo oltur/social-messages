@@ -33,4 +33,6 @@ app.use(router);
 // error handler
 app.use(errorHandleMiddleware);
 
-export default app;
+export {
+    app,
+};

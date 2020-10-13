@@ -3,10 +3,11 @@ import { createServer, Server } from "http";
 if (process.env.ENV === "DEVELOPMENT") {
     dotenv.config();
 }
-import app from "./modules/app";
+import { app } from "./modules/app";
 import { onListening } from "./modules/common/utils/server-utils";
+import { generalConfig } from "./modules/config/general";
 
-const port = process.env.PORT ? parseInt(process.env.PORT, 10) : 3000;
+const port: number = generalConfig.env.PORT;
 
 const server: Server = createServer(app);
 
