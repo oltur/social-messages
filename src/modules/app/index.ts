@@ -9,7 +9,7 @@ import logger from "morgan";
 import {generalConfig} from "../config/general";
 import { corsMiddleware, errorHandleMiddleware } from "./middlewares/index";
 import { router } from "./routes/index";
-import {pool} from "../db";
+import {getDBInstance} from "../db/services/db-provider";
 
 const app: Application = express();
 
@@ -31,9 +31,12 @@ app.use(logger("dev"));
 // routes
 app.use(router);
 
-pool.connect().then(async (client) => {
-    const time = await client.query("SELECT NOW()");
-    console.log(`DB connected at ${time.rows[0].now}`);
+const db = getDBInstance();
+db.connect().then(() => {
+    const client = db.getClient();
+    client.query("SELECT NOW()").then((data: any) => {
+        console.log(data);
+    });
 });
 
 // error handler
