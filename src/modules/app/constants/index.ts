@@ -5,5 +5,5 @@ import GLOBALS from "./globals";
 
 export {
     ROUTES,
-    GLOBALS
+    GLOBALS,
 };

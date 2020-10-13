@@ -3,7 +3,7 @@
 import { Response } from "express";
 
 class ErrorHandler extends Error {
-    constructor (public statusCode: number, public message: string, public details: any = null) {
+    constructor(public statusCode: number, public message: string, public details: any = null) {
         super();
         this.statusCode = statusCode;
         this.message = message;
@@ -11,17 +11,17 @@ class ErrorHandler extends Error {
     }
 }
 
-function handleError (error: any, response: Response) {
+function handleError(error: any, response: Response) {
     const { statusCode, message, details } = error;
     console.error(details);
     return response.status(statusCode).json({
         status: "error",
         statusCode,
-        message
+        message,
     });
 }
 
 export  {
     ErrorHandler,
-    handleError
+    handleError,
 };
