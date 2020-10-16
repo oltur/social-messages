@@ -32,11 +32,9 @@ app.use(logger("dev"));
 app.use(router);
 
 const db = getDBInstance();
-db.connect().then(() => {
-    const client = db.getClient();
-    client.query("SELECT NOW()").then((data: any) => {
-        console.log(data);
-    });
+db.connect()
+.then(() => {
+    console.log('connected to database');
 });
 
 // error handler

@@ -5,9 +5,9 @@ import {getAuthenticationServiceInstance} from "../services/authentication-servi
 const authService = getAuthenticationServiceInstance();
 
 async function loginController(request: Request, response: Response, next: NextFunction) {
-    const { user, password } = request.body;
+    const { email, password } = request.body;
     try {
-        const login = await authService.login(user, password);
+        const login = await authService.login(email, password);
         response.send(login);
     } catch (e) {
         next(new ErrorHandler(500, "Cant login", e));

@@ -1,10 +1,9 @@
 import {Pool} from "pg";
 import {generalConfig} from "../../config/general";
-import {pool} from "../index";
 
 class DBService {
     private client: any;
-    private pool: Pool;
+    public pool: Pool;
     constructor() {
         this.pool = new Pool({
             user: generalConfig.env.DB_USER,
@@ -12,10 +11,6 @@ class DBService {
             database: generalConfig.env.DB_NAME,
             password: generalConfig.env.DB_PASS,
             port: generalConfig.env.DB_PORT,
-        });
-
-        pool.on("connect", () => {
-            console.log("connected to the Database");
         });
     }
     public async connect() {

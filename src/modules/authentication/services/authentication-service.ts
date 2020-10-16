@@ -3,6 +3,7 @@ import fs from "fs";
 import path from "path";
 import {SignOptions, sign, verify, VerifyOptions} from "jsonwebtoken";
 import { generalConfig } from "../../config/general";
+import { getDBInstance } from "../../db";
 const privateKeyPath = path.join(process.cwd(), generalConfig.env.PRIVATE_KEY_PATH);
 const publicKeyPath = path.join(process.cwd(),  generalConfig.env.PUBLIC_KEY_PATH);
 const sshDeffaultPrivateKey = fs.readFileSync(privateKeyPath, "utf-8");
@@ -36,6 +37,10 @@ class AuthenticationService {
 
     public async login(user: string, password: string) {
         const validUser = await this.checkUserCredentials(user, password);
+
+        const db = getDBInstance();
+        const users = await db.pool.query(`SELECT first_name, last_name FROM users WHERE email='${user}'`);
+        console.log(users.rows)
 
         return this.signToken(validUser);
     }
