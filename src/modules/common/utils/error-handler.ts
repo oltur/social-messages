@@ -2,7 +2,7 @@
 
 import { Response } from "express";
 
-class ErrorHandler extends Error {
+class AppError extends Error {
     constructor(public statusCode: number, public message: string, public details: any = null) {
         super();
         this.statusCode = statusCode;
@@ -22,6 +22,6 @@ function handleError(error: any, response: Response) {
 }
 
 export  {
-    ErrorHandler,
+    AppError,
     handleError,
 };

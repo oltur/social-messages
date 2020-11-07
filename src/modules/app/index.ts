@@ -31,14 +31,14 @@ app.use(logger("dev"));
 // routes
 app.use(router);
 
+// error handler
+app.use(errorHandleMiddleware);
+
 const db = getDBInstance();
 db.connect()
 .then(() => {
     console.log('connected to database');
 });
-
-// error handler
-app.use(errorHandleMiddleware);
 
 export {
     app,
