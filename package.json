@@ -13,6 +13,9 @@
     "init-test": "ts-jest config:init"
   },
   "author": "",
+  "repository": {
+    "url": "https://github.com/DmitriyNoa/nodejs-ts-base.git"
+  },
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.0.0",
