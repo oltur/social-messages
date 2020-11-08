@@ -3,6 +3,7 @@
 const USERS_CONSTANTS = {
     ROUTES: {
         INDEX: "/users",
+        REGISTER: "/register",
     }
 };
 

@@ -14,7 +14,7 @@ class AppError extends Error {
 function handleError(error: any, response: Response) {
     const { statusCode, message, details } = error;
     console.error(details);
-    return response.status(statusCode).json({
+    return response.status(statusCode || 500).json({
         status: "error",
         statusCode,
         message,

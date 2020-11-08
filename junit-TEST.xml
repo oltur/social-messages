@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="jest tests" tests="1" failures="0" errors="0" time="120.145">
+  <testsuite name="ErrorHandler" errors="0" failures="0" skipped="0" timestamp="2020-11-08T13:54:59" time="91.133" tests="1">
+    <testcase classname="ErrorHandler should handle error" name="ErrorHandler should handle error" time="1.474">
+    </testcase>
+  </testsuite>
+</testsuites>
