@@ -1,26 +1,25 @@
+import {IDateMeta} from "../../common/interfaces/date";
+import {UserId, UUID} from "../../common/interfaces/utility";
+
 enum MediaType {
     VIDEO = "video",
     IMAGE = "image",
 }
-interface IDateMeta {
-    dateCreated: string;
-    dateModified: string;
-};
 
 interface ITag {
-    id: string;
+    id: UUID;
     label: string;
 }
 interface IMedia {
-    id: string;
+    id: UUID;
     url: string;
     type: MediaType;
     messageId: string;
     dateMeta: IDateMeta;
 }
 interface ILike {
-    id: string;
-    userId: string;
+    id: UUID;
+    userId: UserId;
     messageId: string;
     dateMeta: IDateMeta;
 }
@@ -30,8 +29,8 @@ interface ILocation {
     name: string;
 }
 interface IMessage {
-    id: string;
-    userId: string;
+    id: UUID;
+    userId: UserId;
     text: string;
     tags: ITag[];
     likes: string[];
