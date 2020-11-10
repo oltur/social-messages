@@ -6,4 +6,4 @@ export {
     usersRoute,
     usersIndexController,
     USERS_CONSTANTS,
-}
+};
