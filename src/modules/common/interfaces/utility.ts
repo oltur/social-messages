@@ -5,4 +5,4 @@ type UserId = UUID;
 export {
     UUID,
     UserId,
-}
+};

@@ -5,4 +5,4 @@ interface IDateMeta {
 
 export {
     IDateMeta,
-}
+};

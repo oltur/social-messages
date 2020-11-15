@@ -6,6 +6,11 @@ enum MediaType {
     IMAGE = "image",
 }
 
+enum MessageType {
+    MESSAGE = "message",
+    REPOST = "repost",
+}
+
 interface ITag {
     id: UUID;
     label: string;
@@ -32,11 +37,12 @@ interface IMessage {
     id: UUID;
     userId: UserId;
     text: string;
-    tags: ITag[];
-    likes: string[];
+    tags: UUID[];
+    likesCount: number;
     media: string[];
     location: ILocation;
     dateMeta: IDateMeta;
+    type: MessageType;
 }
 
 export {
