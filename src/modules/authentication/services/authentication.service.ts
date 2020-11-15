@@ -5,7 +5,6 @@ import {SignOptions, sign, verify, VerifyOptions} from "jsonwebtoken";
 import { generalConfig } from "../../config/general";
 import { getDBInstance } from "../../db";
 import { compare, genSalt, hash } from "bcrypt";
-import { v4 } from "uuid";
 import { AppError } from "../../common/utils/error-handler";
 import {IUser} from "../../users/interfaces/user";
 const privateKeyPath = path.join(process.cwd(), generalConfig.env.PRIVATE_KEY_PATH);
@@ -67,23 +66,11 @@ class AuthenticationService {
         return correctPassword;
     }
 
-    public async createUser(user: IUser) {
-        // validate user here
-        const db = getDBInstance();
-        const {email, firstName, lastName, password} = user;
-        const ID = v4();
-        const hashedPassword = await this.hashPassword(password);
-
-        await db.pool.query(`INSERT INTO users(id, user_name, first_name, last_name, email, password) VALUES($1,$2,$3,$4,$5,$6);`, [ID, email, firstName, lastName, email, hashedPassword]);
-
-        return user;
-    }
-
     public signToken(payload: any) {
         return sign(payload, this.sshPrivateKey, AuthenticationService.signOptions);
     }
 
-    private async hashPassword(password: string): Promise<string> {
+    public async hashPassword(password: string): Promise<string> {
         const salt = await genSalt(10);
         const hashed = await hash(password, salt);
         return hashed;

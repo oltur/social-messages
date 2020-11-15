@@ -1,13 +1,13 @@
 "use strict";
 
 import { Router } from "express";
-import {usersRoute} from "../../users/routes/users-route";
+import {usersRoute} from "../../users/routes/users.route";
 
 import pageNotFoundRoute from "./page-not-found-404-route";
 import indexController from "../controllers/index-controller";
 import { ROUTES } from "../constants/index";
 
-import { authMiddleware } from "../../authentication/middlewares/authentication-middleware";
+import { authMiddleware } from "../../authentication/middlewares/authentication.middleware";
 import { authenticationRoute, AUTHENTICATION_CONSTANTS } from "../../authentication";
 import { USERS_CONSTANTS } from "../../users";
 

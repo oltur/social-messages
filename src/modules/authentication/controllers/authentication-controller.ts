@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from "express";
-import {getAuthenticationServiceInstance} from "../services/authentication-service-singleton";
+import {getAuthenticationServiceInstance} from "../services/authentication-service.provider";
 
 const authService = getAuthenticationServiceInstance();
 

@@ -9,7 +9,7 @@ import logger from "morgan";
 import {generalConfig} from "../config/general";
 import { corsMiddleware, errorHandleMiddleware } from "./middlewares/index";
 import { router } from "./routes/index";
-import {getDBInstance} from "../db/services/db-provider";
+import {getDBInstance} from "../db/services/db.provider";
 
 const app: Application = express();
 

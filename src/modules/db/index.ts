@@ -1,4 +1,4 @@
-import { getDBInstance } from './services/db-provider';
+import { getDBInstance } from './services/db.provider';
 export {
     getDBInstance,
 }

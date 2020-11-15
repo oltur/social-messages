@@ -3,7 +3,7 @@
 import { NextFunction, Request, Response } from "express";
 import { GLOBALS } from "../../app/constants";
 import { AppError } from "../../common/utils/error-handler";
-import {getAuthenticationServiceInstance} from "../services/authentication-service-singleton";
+import {getAuthenticationServiceInstance} from "../services/authentication-service.provider";
 
 async function authMiddleware(request: Request, response: Response, next: NextFunction) {
         let token: any = request.headers[GLOBALS.AUTH_HEADER];

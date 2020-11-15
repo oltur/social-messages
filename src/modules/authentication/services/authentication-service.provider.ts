@@ -1,5 +1,5 @@
 "use strict";
-import { AuthenticationService } from "./authentication-service";
+import { AuthenticationService } from "./authentication.service";
 
 let instance: AuthenticationService | null = null;
 

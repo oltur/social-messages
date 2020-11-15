@@ -1,7 +1,7 @@
 import {Pool} from "pg";
 import {generalConfig} from "../../config/general";
 
-class DBService {
+class DbService {
     private client: any;
     public pool: Pool;
     constructor() {
@@ -22,5 +22,5 @@ class DBService {
 }
 
 export {
-    DBService,
+    DbService,
 }
