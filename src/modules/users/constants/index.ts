@@ -2,9 +2,10 @@
 
 const USERS_CONSTANTS = {
     ROUTES: {
+        FOLLOW: "/follow",
         INDEX: "/users",
         REGISTER: "/register",
-        FOLLOW: "/follow",
+        UN_FOLLOW: "/unfollow",
     },
 };
 

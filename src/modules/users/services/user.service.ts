@@ -27,6 +27,12 @@ class UserService {
         return Promise.resolve({followerId, followingId});
     }
 
+    public async unFollow(followerId: UUID, followingId: UUID): Promise<IFollow> {
+        await this.db.pool.query(`DELETE FROM users_relations WHERE follower_user_id=$1 AND following_user_id=$2`,
+            [followerId, followingId]);
+        return Promise.resolve({followerId, followingId});
+    }
+
     public async createUser(user: IUser) {
         // validate user here
         const db = getDBInstance();
