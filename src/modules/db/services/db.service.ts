@@ -1,3 +1,5 @@
+"use strict";
+
 import {Pool} from "pg";
 import {generalConfig} from "../../config/general";
 

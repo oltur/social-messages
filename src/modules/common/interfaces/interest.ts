@@ -1,3 +1,5 @@
+"use strict";
+
 import {UUID} from "./utility";
 
 interface IInterest {

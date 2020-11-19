@@ -1,3 +1,5 @@
+"use strict";
+
 import {IDateMeta} from "../../common/interfaces/date";
 import {UserId, UUID} from "../../common/interfaces/utility";
 
@@ -36,6 +38,7 @@ interface ILocation {
 interface IMessage {
     id: UUID;
     userId: UserId;
+    subject: string;
     text: string;
     tags: UUID[];
     likesCount: number;
@@ -43,6 +46,7 @@ interface IMessage {
     location: ILocation;
     dateMeta: IDateMeta;
     type: MessageType;
+    parentId?: UUID;
 }
 
 export {

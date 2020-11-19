@@ -1,3 +1,5 @@
+"use strict";
+
 const GLOBALS = {
     AUTH_HEADER: "authorization"
 };

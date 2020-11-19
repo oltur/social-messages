@@ -1,3 +1,5 @@
+"use strict";
+
 import dotenv from "dotenv";
 import { createServer, Server } from "http";
 if (process.env.ENV === "DEVELOPMENT") {

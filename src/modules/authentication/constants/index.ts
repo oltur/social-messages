@@ -3,7 +3,7 @@
 const AUTHENTICATION_CONSTANTS = {
     ROUTES: {
         INDEX: "/auth",
-        LOGIN: "/login"
+        LOGIN: "/login",
     },
 };
 

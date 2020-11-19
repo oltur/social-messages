@@ -1,6 +1,5 @@
 "use strict";
 
-// TODO: Add proper logging with Winston os simmilar
 import bodyParser from "body-parser";
 import express, { Application } from "express";
 import rateLimit from "express-rate-limit";

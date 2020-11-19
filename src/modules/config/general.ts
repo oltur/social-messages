@@ -1,3 +1,5 @@
+"use strict";
+
 interface IConfig {
     rateLimiter: {
         windowMs: number;

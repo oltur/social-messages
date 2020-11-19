@@ -1,3 +1,5 @@
+"use strict";
+
 import {AUTHENTICATION_CONSTANTS} from "./constants";
 import { AuthenticationService } from "./services/authentication.service";
 import { authMiddleware } from "./middlewares/authentication.middleware";

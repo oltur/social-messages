@@ -1,3 +1,5 @@
+"use strict";
+
 import {UserId, UUID} from "../../common/interfaces/utility";
 
 interface IRelation {

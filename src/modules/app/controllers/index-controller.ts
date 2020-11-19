@@ -1,3 +1,5 @@
+"use strict";
+
 import { Request, Response } from "express";
 
 function indexController (request: Request, response: Response) {

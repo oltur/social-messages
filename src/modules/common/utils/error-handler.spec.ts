@@ -1,6 +1,7 @@
+"use strict";
+
 import { handleError, AppError } from "./error-handler";
 import { Response } from "express";
-
 
 describe("ErrorHandler", () => {
 

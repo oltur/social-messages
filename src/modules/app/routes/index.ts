@@ -10,11 +10,13 @@ import { ROUTES } from "../constants/index";
 import { authMiddleware } from "../../authentication/middlewares/authentication.middleware";
 import { authenticationRoute, AUTHENTICATION_CONSTANTS } from "../../authentication";
 import { USERS_CONSTANTS } from "../../users";
+import {MESSAGES_CONSTANTS, messagesRoute} from "../../messages";
 
 const router = Router();
 router.get(ROUTES.INDEX, authMiddleware, indexController);
 router.use(USERS_CONSTANTS.ROUTES.INDEX, usersRoute);
 router.use(AUTHENTICATION_CONSTANTS.ROUTES.INDEX, authenticationRoute);
+router.use(MESSAGES_CONSTANTS.ROUTES.INDEX, messagesRoute);
 router.use(pageNotFoundRoute);
 
 export {

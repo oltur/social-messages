@@ -1,3 +1,5 @@
+"use strict";
+
 import {UUID} from "../../common/interfaces/utility";
 import {AppError} from "../../common/utils/error-handler";
 import {getDBInstance} from "../../db";

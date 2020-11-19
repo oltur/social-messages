@@ -1,3 +1,5 @@
+"use strict";
+
 import {UserId} from "./utility";
 
 enum Theme {

@@ -1,3 +1,5 @@
+"use strict";
+
 import {IDateMeta} from "../../common/interfaces/date";
 import {UserId, UUID} from "../../common/interfaces/utility";
 import {IPreference} from "../../common/interfaces/preference";

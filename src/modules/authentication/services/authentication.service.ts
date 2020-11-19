@@ -1,4 +1,5 @@
 "use strict";
+
 import fs from "fs";
 import path from "path";
 import {SignOptions, sign, verify, VerifyOptions} from "jsonwebtoken";
@@ -38,10 +39,16 @@ class AuthenticationService {
         return verify(token, this.sshPublicKey, AuthenticationService.verifyOptions);
     }
 
+    public async getUserID(authString: string): Promise<string> {
+        const token = authString.replace("Bearer ", "");
+        const decoded = await this.decodeToken(token);
+        return decoded.id;
+    }
+
     public async login(email: string, password: string): Promise<string> {
 
         const db = getDBInstance();
-        const user = await db.pool.query(`SELECT first_name,
+        const user = await db.pool.query(`SELECT id, first_name,
                                                                   last_name,
                                                                   password,
                                                                   email FROM users WHERE email=$1`, [email]);
@@ -82,6 +89,10 @@ class AuthenticationService {
         }
 
         return compare(password, encrypted);
+    }
+
+    private async decodeToken(token: string): Promise<any> {
+        return verify(token, this.sshPublicKey, AuthenticationService.verifyOptions);
     }
 }
 
