@@ -28,4 +28,7 @@ If you like the project and would like to learn, explore and contribute - give i
 - JWT authentication.
 - Yup.
 
-
+## Help needed
+- Design good cloud architecture (strategy).
+- Polish SQL queries.
+- Security.
