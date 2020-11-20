@@ -5,10 +5,11 @@ The goal of the project - is to create an API for a messaging platform inspired 
 This project strives to be highly modular from the beginning, with easy pluggable modules. As application grows, these modules could, later, become standalone microservices.
 
 The project is fully free and open for anyone to join.
-If you like the project and would like to learn, explore and contribute - git it a star and let me know.
+If you like the project and would like to learn, explore and contribute - give it a star and let me know.
 
 ## Project features
 - Register new user.
+- Unregister/hide the user.
 - Discover and find other users.
 - Follow other users.
 - Post messages with images, videos, locations, tags, proper URL parsing etc.
@@ -17,6 +18,7 @@ If you like the project and would like to learn, explore and contribute - git it
 - Repost a message.
 - Search messages.
 - Control privacy of the user account and messages.
+- More features?
 
 ## Technologies used
 - NodeJS.
