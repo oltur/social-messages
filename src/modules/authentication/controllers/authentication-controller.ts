@@ -8,8 +8,8 @@ const authService = getAuthenticationServiceInstance();
 async function loginController(request: Request, response: Response, next: NextFunction) {
     const { email, password } = request.body;
     try {
-        const login = await authService.login(email, password);
-        response.send(login);
+        const token = await authService.login(email, password);
+        response.status(200).json({token});
     } catch (e) {
         next(e);
     }
