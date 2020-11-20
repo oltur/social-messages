@@ -1,19 +1,29 @@
-# TypeScript, NodeJS, PostgreSQL, JWT, starter project
-A starter modular seed for NodeJS TypeScript project.
+# NodeJS, TypeScript, PostgreSQL social messaging API
+A social messaging API written in TypeScript and NodeJS.
+This is an experimental/learning project.
+The goal of the project - is to create an API for a messaging platform inspired by popular social networks.
+This project strives to be highly modular from the beginning, with easy pluggable modules. As application grows, these modules could, later, become standalone microservices.
 
-## Features
+The project is fully free and open for anyone to join.
+If you like the project and would like to learn, explore and contribute - git it a star and let me know.
+
+## Project features
+- Register new user.
+- Discover and find other users.
+- Follow other users.
+- Post messages with images, videos, locations, tags, proper URL parsing etc.
+- Repost messages from other users.
+- Like and comment messages of other users.
+- Repost a message.
+- Search messages.
+- Control privacy of the user account and messages.
+
+## Technologies used
 - NodeJS.
+- ExpressJS.
 - TypeScript.
-- PostgeSQL.
-- JWT based authentication.
-- SSH key pairs token encryption.
-- Basic users table setup.
+- PostgreSQL.
+- JWT authentication.
+- Yup.
 
-### Getting started
-- clone the project ```git clone git@github.com:DmitriyNoa/nodejs-ts-base.git```.
-- CD in to the cloned project ```cd nodejs-ts-base.git```.
-- Install dependencies ```npm install```.
-- Rename .env_example to .env ```cp .env_example .env```.
-- Update env variables. If you need SSH keys you can generate them with http://travistidwell.com/jsencrypt/demo/.
-- Run the project with ```npm run dev```.
 
