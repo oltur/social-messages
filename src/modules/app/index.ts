@@ -4,7 +4,7 @@ import bodyParser from "body-parser";
 import express, { Application } from "express";
 import rateLimit from "express-rate-limit";
 import helmet from "helmet";
-import logger from "morgan";
+const morgan = require('morgan');
 import {generalConfig} from "../config/general";
 import { corsMiddleware, errorHandleMiddleware } from "./middlewares/index";
 import { router } from "./routes/index";
@@ -25,7 +25,7 @@ app.use(corsMiddleware());
 app.use(bodyParser.json());
 
 // beautiful access logs
-app.use(logger("dev"));
+app.use(morgan('dev'));
 
 // routes
 app.use(router);

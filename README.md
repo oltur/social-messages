@@ -28,6 +28,12 @@ If you like the project and would like to learn, explore and contribute - give i
 - JWT authentication.
 - Yup.
 
+## Running
+- Windows
+-- you may need this or not: set NODE_TLS_REJECT_UNAUTHORIZED=0
+-- npm i
+-- npm run dev
+
 ## Help needed
 - Design good cloud architecture (strategy).
 - Polish SQL queries.
